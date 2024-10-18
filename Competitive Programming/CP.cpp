@@ -11,7 +11,7 @@ using namespace std;
 using namespace std::chrono; //< For high-resolution timing (optional but useful for performance benchmarking)
 
 /// Define macros to simplify repetitive actions
-#define OpenFiles(filein, fileout) ifstream cin (filein); ofstream cout (fileout) //< Open input and output files if they are specified
+#define OpenFiles(filein, fileout) ifstream fin (filein); ofstream fout (fileout) //< Open input and output files if they are specified
 #define EnableFastIO() ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr)                                 //< Enables fast I/O by desyncing I/O with C-style streams
 
 /// Macros to print YES or NO results, often used in competitive programming
@@ -40,6 +40,12 @@ using namespace std::chrono; //< For high-resolution timing (optional but useful
 const string ProblemName = "";           //< Problem name, useful when working with file input/output
 int32_t TestcaseCount = 1, Testcase = 1; //< Store the number of test cases and the current test case index
 
+#if USE_FILE_IO && !defined(LOCAL) //< If file I/O is enabled and the program is not in LOCAL mode, open input/output files
+	OpenFiles(ProblemName + ".in", ProblemName + ".out");
+#define cin fin
+#define cout fout
+#endif
+
 #ifdef LOCAL
 #define debug(x) cerr << #x << ": " << x << endl //< Debug macro to print variable names and their values in a local environment
 #else
@@ -60,9 +66,6 @@ void TestcaseFunction() //< Function to handle the logic of each individual test
 /// Main function where execution begins
 int32_t main()
 {
-#if USE_FILE_IO && !defined(LOCAL) //< If file I/O is enabled and the program is not in LOCAL mode, open input/output files
-	OpenFiles(ProblemName + ".in", ProblemName + ".out");
-#endif
 #if USE_FAST_IO                    //< If fast I/O is enabled, sync C++ I/O streams with C-style I/O for better performance
 	EnableFastIO();
 #endif
