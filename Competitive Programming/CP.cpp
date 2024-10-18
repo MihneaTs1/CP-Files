@@ -1,14 +1,12 @@
-/// Pragmas for optimization and targeting specific processor instructions
-#ifndef LOCAL
-#pragma GCC optimize("Ofast,unroll-loops")                           //> Enabling fast optimizations and loop unrolling for better performance
-#pragma GCC target("avx2,popcnt,lzcnt,abm,bmi,bmi2,fma,tune=native") //> Optimize for CPU-specific instruction sets: AVX2, POPCNT, LZCNT, ABM, BMI, BMI2, FMA, tuned for the native architecture
-#endif
-
 /// Common include for competitive programming; <bits/stdc++.h> includes almost all standard libraries
 #include <bits/stdc++.h>
 #ifdef LOCAL
 #include <Windows.h>         //< Windows-specific header to be used only in a LOCAL environment for debugging
+#else
+#pragma GCC optimize("Ofast,unroll-loops")                           //> Enabling fast optimizations and loop unrolling for better performance
+#pragma GCC target("avx2,popcnt,lzcnt,abm,bmi,bmi2,fma,tune=native") //> Optimize for CPU-specific instruction sets: AVX2, POPCNT, LZCNT, ABM, BMI, BMI2, FMA, tuned for the native architecture
 #endif
+
 using namespace std;
 using namespace std::chrono; //< For high-resolution timing (optional but useful for performance benchmarking)
 
