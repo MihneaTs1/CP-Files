@@ -55,7 +55,7 @@ public:
 	{
         // Add any pre-initialization code here, such as reading constants or setting up data structures
 	}
-	
+
 	static void Testcase() //< Function to handle the logic of each individual test case
 	{
         // The logic for each test case should be implemented here
