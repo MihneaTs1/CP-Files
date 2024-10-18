@@ -36,7 +36,7 @@ using namespace std::chrono; //< For high-resolution timing (optional but useful
     #define uint uint32_t   //< Otherwise, define uint as 32-bit unsigned integer
 #endif
 
-// Global variables for the problem and test case management
+/// Global variables for the problem and test case management
 const string ProblemName = "";           //< Problem name, useful when working with file input/output
 int32_t TestcaseCount = 1, Testcase = 1; //< Store the number of test cases and the current test case index
 
