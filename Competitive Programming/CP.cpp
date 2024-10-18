@@ -30,6 +30,7 @@ using namespace std::chrono; //< For high-resolution timing (optional but useful
 #define ll int64_t
 #define ull uint64_t
 #if RUN_ON_64_BITS
+    #define int int64_t
     #define uint uint64_t   //< Define uint as 64-bit unsigned integer if in 64-bit mode
 #else
     #define uint uint32_t   //< Otherwise, define uint as 32-bit unsigned integer
@@ -45,22 +46,16 @@ int32_t TestcaseCount = 1, Testcase = 1; //< Store the number of test cases and 
 #define debug(x)                                 //< In a non-LOCAL environment, the debug macro does nothing
 #endif
 
-/// Solution class for organizing the logic of the problem
-class Solution
+void PreInitFunction()  //< Function to initialize any data before processing test cases
 {
-public:
-	static void PreInit()  //< Function to initialize any data before processing test cases
-	{
-        // Add any pre-initialization code here, such as reading constants or setting up data structures
-	}
-
-	static void Testcase() //< Function to handle the logic of each individual test case
-	{
-        // The logic for each test case should be implemented here
-        // Input processing and output handling go here
-	}
+// Add any pre-initialization code here, such as reading constants or setting up data structures
 }
-Sol; //< Create an instance of the Solution class
+
+void TestcaseFunction() //< Function to handle the logic of each individual test case
+{
+// The logic for each test case should be implemented here
+// Input processing and output handling go here
+}
 
 /// Main function where execution begins
 int32_t main()
@@ -74,7 +69,7 @@ int32_t main()
 #if FETCH_TESTCASE_COUNT           //< If the number of test cases is provided, read it from input
 	cin >> TestcaseCount;
 #endif
-	Sol.PreInit();
-	for (; Testcase <= TestcaseCount; Sol.Testcase(), Testcase++);
+	PreInitFunction();
+	for (; Testcase <= TestcaseCount; TestcaseFunction(), Testcase++);
 	return 0;
 }
