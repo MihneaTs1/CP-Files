@@ -11,7 +11,7 @@ using namespace std;
 using namespace std::chrono; //< For high-resolution timing (optional but useful for performance benchmarking)
 
 /// Define macros to simplify repetitive actions
-#define OpenFiles(filein, fileout) if (!filein.empty()) ifstream cin (filein); if (!fileout.empty()) ofstream cout (fileout) //< Open input and output files if they are specified
+#define OpenFiles(filein, fileout) ifstream cin (filein); ofstream cout (fileout) //< Open input and output files if they are specified
 #define EnableFastIO() ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr)                                 //< Enables fast I/O by desyncing I/O with C-style streams
 
 /// Macros to print YES or NO results, often used in competitive programming
